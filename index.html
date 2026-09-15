@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kreo Creator Engine — Influencer & Partnership Ads Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #0B0C10; color: #F3F4F6; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+        .kreo-purple { color: #8A7CF3; }
+        .bg-kreo-purple { background-color: #685BC7; }
+        .bg-kreo-purple:hover { background-color: #584BB7; }
+        .border-kreo { border-color: rgba(104, 91, 199, 0.3); }
+        .glow-purple { box-shadow: 0 0 25px rgba(104, 91, 199, 0.25); }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased selection:bg-purple-500 selection:text-white">
+
+    <!-- TOP NAV -->
+    <header class="border-b border-gray-800/80 bg-[#12131A]/90 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-[#685BC7] to-[#9E7BFF] flex items-center justify-center font-extrabold text-white text-lg shadow-md shadow-purple-900/30">K</div>
+                <span class="font-bold text-lg tracking-tight text-white">Kreo <span class="text-xs uppercase tracking-widest text-[#8A7CF3] font-semibold bg-purple-950/60 px-2 py-0.5 rounded-full border border-purple-800/40 ml-1.5">Creator Hub</span></span>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+                <div id="auth-status" class="flex items-center space-x-2 text-xs text-gray-400 bg-gray-900/80 px-3 py-1.5 rounded-lg border border-gray-800">
+                    <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+                    <span>Meta Auth: Ready</span>
+                </div>
+                <div class="w-8 h-8 rounded-full bg-gray-800 border border-gray-700 flex items-center justify-center text-xs font-semibold text-gray-300">IS</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTAINER -->
+    <main class="flex-1 max-w-7xl w-full mx-auto px-6 py-8">
+
+        <!-- STEP 1: AUTHENTICATION BANNER -->
+        <div id="auth-box" class="mb-8 rounded-2xl bg-gradient-to-r from-[#17152B] via-[#12131A] to-[#12131A] border border-kreo p-6 glow-purple">
+            <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                <div>
+                    <div class="flex items-center space-x-2 text-xs font-semibold text-[#8A7CF3] uppercase tracking-wider mb-1">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.989C18.343 21.129 22 16.99 22 12c0-5.523-4.477-10-10-10z"/></svg>
+                        <span>Meta Creator Marketplace API Integration</span>
+                    </div>
+                    <h2 class="text-xl font-bold text-white mb-1">Connect Brand Asset: @kreosphere</h2>
+                    <p class="text-sm text-gray-400">Authenticate via Facebook Login to unlock Creator Marketplace Discovery & Partnership Ad whitelisting.</p>
+                </div>
+                
+                <button onclick="openOAuthModal()" class="flex items-center space-x-2.5 bg-[#1877F2] hover:bg-[#166FE5] text-white px-5 py-2.5 rounded-xl font-semibold text-sm transition-all shadow-lg shadow-blue-900/20 active:scale-95">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    <span>Connect with Facebook</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- SEARCH FILTERS -->
+        <div class="bg-[#12131A] border border-gray-800/80 rounded-2xl p-6 mb-8">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="font-bold text-base text-white flex items-center space-x-2">
+                    <span>Creator Discovery & Evaluation</span>
+                    <span class="text-xs bg-gray-800 text-gray-300 font-mono px-2 py-0.5 rounded">Discovery API v20.0</span>
+                </h3>
+                <span class="text-xs text-gray-400">Filtered by: <span class="text-[#8A7CF3] font-medium">India (IN) • Gaming & Tech</span></span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div>
+                    <label class="block text-xs font-semibold text-gray-400 mb-1.5 uppercase">Niche Category</label>
+                    <select class="w-full bg-[#181A22] border border-gray-700/70 text-gray-200 text-sm rounded-xl px-3 py-2.5 focus:outline-none focus:border-[#685BC7]">
+                        <option>GAMES_PUZZLES_AND_PLAY (Gaming)</option>
+                        <option>SCIENCE_AND_TECH (Tech / Hardware)</option>
+                        <option>EDUCATION_AND_LEARNING</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-gray-400 mb-1.5 uppercase">Follower Tier</label>
+                    <select class="w-full bg-[#181A22] border border-gray-700/70 text-gray-200 text-sm rounded-xl px-3 py-2.5 focus:outline-none focus:border-[#685BC7]">
+                        <option>10,000 – 100,000 (Micro / Rising)</option>
+                        <option>100,000 – 500,000 (Mid-Tier)</option>
+                        <option>500,000+ (Macro)</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-gray-400 mb-1.5 uppercase">Audience Age Target</label>
+                    <select class="w-full bg-[#181A22] border border-gray-700/70 text-gray-200 text-sm rounded-xl px-3 py-2.5 focus:outline-none focus:border-[#685BC7]">
+                        <option>18_to_24 & 25_to_34 (Core Demographics)</option>
+                        <option>18_to_24 only</option>
+                        <option>25_to_34 only</option>
+                    </select>
+                </div>
+                <div class="flex items-end">
+                    <button class="w-full bg-kreo-purple text-white font-semibold text-sm py-2.5 px-4 rounded-xl transition shadow-md shadow-purple-900/30 flex items-center justify-center space-x-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                        <span>Filter Creators</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- CREATOR CARDS GRID -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+            <!-- CREATOR CARD 1 -->
+            <div class="bg-[#12131A] border border-gray-800/80 hover:border-kreo transition rounded-2xl p-5 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center space-x-3.5 mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-purple-600 to-pink-500 p-0.5">
+                            <div class="w-full h-full rounded-full bg-gray-900 flex items-center justify-center font-bold text-white text-sm">RN</div>
+                        </div>
+                        <div>
+                            <div class="flex items-center space-x-1.5">
+                                <h4 class="font-bold text-white text-sm">Rohan Nambiar</h4>
+                                <svg class="w-4 h-4 text-blue-400" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            </div>
+                            <p class="text-xs text-gray-400 font-mono">@rohangames_in</p>
+                        </div>
+                    </div>
+
+                    <p class="text-xs text-gray-300 mb-4 line-clamp-2">Valorant & Apex Legends enthusiast. Custom mechanical keyboard sound tests & desk setups.</p>
+
+                    <!-- METRICS GRID -->
+                    <div class="grid grid-cols-3 gap-2 bg-[#181A22] rounded-xl p-3 border border-gray-800/60 mb-4 font-mono text-center">
+                        <div>
+                            <span class="block text-[10px] text-gray-400 uppercase">Followers</span>
+                            <span class="text-xs font-bold text-white">48.2K</span>
+                        </div>
+                        <div>
+                            <span class="block text-[10px] text-gray-400 uppercase">Reels Rate</span>
+                            <span class="text-xs font-bold text-emerald-400">5.8%</span>
+                        </div>
+                        <div>
+                            <span class="block text-[10px] text-gray-400 uppercase">Audience</span>
+                            <span class="text-xs font-bold text-purple-300">84% 18-24</span>
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="triggerPartnershipInvite('@rohangames_in')" class="w-full bg-gray-800 hover:bg-[#685BC7] text-gray-200 hover:text-white font-medium text-xs py-2.5 px-3 rounded-xl transition border border-gray-700/60 flex items-center justify-center space-x-1.5">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+                    <span>Add to Partnership Ad Campaign</span>
+                </button>
+            </div>
+
+            <!-- CREATOR CARD 2 -->
+            <div class="bg-[#12131A] border border-gray-800/80 hover:border-kreo transition rounded-2xl p-5 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center space-x-3.5 mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-blue-500 to-indigo-600 p-0.5">
+                            <div class="w-full h-full rounded-full bg-gray-900 flex items-center justify-center font-bold text-white text-sm">AS</div>
+                        </div>
+                        <div>
+                            <div class="flex items-center space-x-1.5">
+                                <h4 class="font-bold text-white text-sm">Ananya Sharma</h4>
+                                <svg class="w-4 h-4 text-blue-400" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            </div>
+                            <p class="text-xs text-gray-400 font-mono">@ananya_techsets</p>
+                        </div>
+                    </div>
+
+                    <p class="text-xs text-gray-300 mb-4 line-clamp-2">Minimalist tech setups, productivity workflows & ergonomic chair reviews.</p>
+
+                    <!-- METRICS GRID -->
+                    <div class="grid grid-cols-3 gap-2 bg-[#181A22] rounded-xl p-3 border border-gray-800/60 mb-4 font-mono text-center">
+                        <div>
+                            <span class="block text-[10px] text-gray-400 uppercase">Followers</span>
+                            <span class="text-xs font-bold text-white">82.5K</span>
+                        </div>
+                        <div>
+                            <span class="block text-[10px] text-gray-400 uppercase">Reels Rate</span>
+                            <span class="text-xs font-bold text-emerald-400">7.2%</span>
+                        </div>
+                        <div>
+                            <span class="block text-[10px] text-gray-400 uppercase">Audience</span>
+                            <span class="text-xs font-bold text-purple-300">76% 25-34</span>
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="triggerPartnershipInvite('@ananya_techsets')" class="w-full bg-gray-800 hover:bg-[#685BC7] text-gray-200 hover:text-white font-medium text-xs py-2.5 px-3 rounded-xl transition border border-gray-700/60 flex items-center justify-center space-x-1.5">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+                    <span>Add to Partnership Ad Campaign</span>
+                </button>
+            </div>
+
+            <!-- CREATOR CARD 3 -->
+            <div class="bg-[#12131A] border border-gray-800/80 hover:border-kreo transition rounded-2xl p-5 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center space-x-3.5 mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-amber-500 to-red-500 p-0.5">
+                            <div class="w-full h-full rounded-full bg-gray-900 flex items-center justify-center font-bold text-white text-sm">VK</div>
+                        </div>
+                        <div>
+                            <div class="flex items-center space-x-1.5">
+                                <h4 class="font-bold text-white text-sm">Vikram Kulkarni</h4>
+                            </div>
+                            <p class="text-xs text-gray-400 font-mono">@vikram_gaming</p>
+                        </div>
+                    </div>
+
+                    <p class="text-xs text-gray-300 mb-4 line-clamp-2">Competitive FPS gamer, monitor calibration tips and high-polling rate mouse testing.</p>
+
+                    <!-- METRICS GRID -->
+                    <div class="grid grid-cols-3 gap-2 bg-[#181A22] rounded-xl p-3 border border-gray-800/60 mb-4 font-mono text-center">
+                        <div>
+                            <span class="block text-[10px] text-gray-400 uppercase">Followers</span>
+                            <span class="text-xs font-bold text-white">31.4K</span>
+                        </div>
+                        <div>
+                            <span class="block text-[10px] text-gray-400 uppercase">Reels Rate</span>
+                            <span class="text-xs font-bold text-emerald-400">6.4%</span>
+                        </div>
+                        <div>
+                            <span class="block text-[10px] text-gray-400 uppercase">Audience</span>
+                            <span class="text-xs font-bold text-purple-300">91% 18-24</span>
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="triggerPartnershipInvite('@vikram_gaming')" class="w-full bg-gray-800 hover:bg-[#685BC7] text-gray-200 hover:text-white font-medium text-xs py-2.5 px-3 rounded-xl transition border border-gray-700/60 flex items-center justify-center space-x-1.5">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+                    <span>Add to Partnership Ad Campaign</span>
+                </button>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- SIMULATED META OAUTH MODAL (FOR SCREENCAST) -->
+    <div id="oauth-modal" class="fixed inset-0 bg-black/75 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white text-gray-900 rounded-2xl max-w-md w-full shadow-2xl overflow-hidden border border-gray-200 animate-in fade-in zoom-in-95 duration-150">
+            <div class="bg-[#1877F2] p-4 flex items-center justify-between text-white">
+                <div class="flex items-center space-x-2 font-bold text-sm">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    <span>Log in with Facebook</span>
+                </div>
+                <button onclick="closeOAuthModal()" class="text-white/80 hover:text-white text-lg font-bold">&times;</button>
+            </div>
+
+            <div class="p-6">
+                <div class="flex items-center space-x-3 mb-4">
+                    <div class="w-10 h-10 rounded-full bg-[#685BC7] text-white flex items-center justify-center font-bold">K</div>
+                    <div>
+                        <h4 class="font-bold text-sm">Kreo Creator Hub</h4>
+                        <p class="text-xs text-gray-500">requests access to your Instagram Business Account</p>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 border border-gray-200 rounded-xl p-3.5 mb-5 text-xs text-gray-700 space-y-2.5">
+                    <div class="flex items-start space-x-2">
+                        <svg class="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        <span><strong>Discover creators</strong> on Instagram Creator Marketplace (`instagram_creator_marketplace_discovery`)</span>
+                    </div>
+                    <div class="flex items-start space-x-2">
+                        <svg class="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        <span>Access basic profile and reels metrics (`instagram_basic`)</span>
+                    </div>
+                    <div class="flex items-start space-x-2">
+                        <svg class="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        <span>Manage connected Page: <strong>Kreo. (@kreosphere)</strong></span>
+                    </div>
+                </div>
+
+                <div class="flex items-center space-x-3">
+                    <button onclick="completeAuth()" class="flex-1 bg-[#1877F2] hover:bg-[#166FE5] text-white py-2.5 rounded-xl font-semibold text-sm transition">Continue as Ishan Sukul</button>
+                    <button onclick="closeOAuthModal()" class="bg-gray-100 hover:bg-gray-200 text-gray-700 py-2.5 px-4 rounded-xl font-semibold text-sm transition">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openOAuthModal() {
+            document.getElementById('oauth-modal').classList.remove('hidden');
+        }
+        function closeOAuthModal() {
+            document.getElementById('oauth-modal').classList.add('hidden');
+        }
+        function completeAuth() {
+            closeOAuthModal();
+            const status = document.getElementById('auth-status');
+            status.innerHTML = `<span class="w-2 h-2 rounded-full bg-emerald-400"></span><span class="text-emerald-300 font-medium">Meta Auth: Connected (@kreosphere)</span>`;
+            status.className = "flex items-center space-x-2 text-xs bg-emerald-950/60 px-3 py-1.5 rounded-lg border border-emerald-800/60";
+            alert("✓ Facebook Login Successful! Page: Kreo. (@kreosphere) connected.");
+        }
+        function triggerPartnershipInvite(handle) {
+            alert(`✓ Partnership Ad Invitation Created for ${handle}!\nWhitelisting token generated for Meta Ads Manager campaign.`);
+        }
+    </script>
+</body>
+</html>
